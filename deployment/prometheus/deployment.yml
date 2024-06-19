@@ -77,5 +77,6 @@ spec:
           configMap:
             name: prometheus
         - name: data-volume
-          emptyDir:
-            sizeLimit: "5Gi"
+          persistentVolumeClaim:
+            claimName: prom-pvc
+

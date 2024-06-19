@@ -101,5 +101,5 @@ spec:
           configMap:
             name: datasources
         - name: grafana-storage
-          emptyDir:
-            sizeLimit: "1Gi"
+          persistentVolumeClaim:
+            claimName: grafana-pvc

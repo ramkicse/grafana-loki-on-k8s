@@ -29,7 +29,7 @@ spec:
         runAsUser: 10001
       containers:
         - name: loki
-          image: docker.io/grafana/loki:3.0.0
+          image: docker.io/grafana/loki:latest
           imagePullPolicy: IfNotPresent
           args:
             - "-config.file=/etc/loki/loki.yaml"
@@ -74,5 +74,5 @@ spec:
             name: loki
             defaultMode: 0755
         - name: storage
-          emptyDir:
-            sizeLimit: "2Gi"
+          persistentVolumeClaim:
+            claimName: loki-pvc
